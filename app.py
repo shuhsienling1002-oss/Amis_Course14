@@ -18,7 +18,7 @@ def safe_play_audio(text):
     """語音播放安全模式"""
     try:
         from gtts import gTTS
-        # 使用印尼語 (id) 發音，最接近南島語韻律
+        # 使用印尼語 (id) 發音
         tts = gTTS(text=text, lang='id')
         fp = BytesIO()
         tts.write_to_fp(fp)
@@ -68,7 +68,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- 2. 資料庫 (Unit 14 修正版) ---
+# --- 2. 資料庫 (Unit 14 最終修正) ---
 vocab_data = [
     {"amis": "Romi'ad", "chi": "天氣 / 日子", "icon": "📅", "source": "Row 255"},
     {"amis": "Cidal", "chi": "太陽", "icon": "☀️", "source": "Basic"},
@@ -78,14 +78,14 @@ vocab_data = [
     {"amis": "Fo'is", "chi": "星星", "icon": "⭐", "source": "Basic"},
     {"amis": "Kakarayan", "chi": "天空", "icon": "🌌", "source": "Basic"},
     {"amis": "Si'enaw", "chi": "冷 (天氣)", "icon": "🥶", "source": "Row 255"},
-    {"amis": "Fa^edet", "chi": "熱 / 熱度", "icon": "🥵", "source": "Row 538 (Fix)"}, # 修正拼寫
+    {"amis": "Fa^edet", "chi": "熱 / 熱度", "icon": "🥵", "source": "Row 538 (Fix)"},
     {"amis": "Anini", "chi": "今天 / 現在", "icon": "👇", "source": "Basic"},
 ]
 
 sentences = [
     {"amis": "Si'enaw ko romi'ad.", "chi": "天氣很冷。", "icon": "🥶", "source": "Row 255"},
-    {"amis": "Maorad anini.", "chi": "今天下雨。", "icon": "🌧️", "source": "Ma + 'Orad"},
-    {"amis": "Fa^edet ko cidal.", "chi": "太陽很熱。", "icon": "☀️", "source": "Unit 12+14 (Fix)"}, # 修正拼寫
+    {"amis": "Ma'orad anini.", "chi": "今天下雨。", "icon": "🌧️", "source": "User Fix"}, # 修正拼寫
+    {"amis": "Fa^edet ko cidal.", "chi": "太陽很熱。", "icon": "☀️", "source": "User Fix"},
     {"amis": "I kakarayan ko fo'is.", "chi": "星星在天空。", "icon": "⭐", "source": "Unit 13"},
     {"amis": "Tata'ang ko fali.", "chi": "風很大。", "icon": "🍃", "source": "Tata'ang (大)"},
 ]
@@ -107,11 +107,11 @@ quiz_pool = [
         "hint": "Kakarayan 是天空"
     },
     {
-        "q": "Maorad anini.",
-        "audio": "Maorad anini",
+        "q": "Ma'orad anini.",
+        "audio": "Ma'orad anini",
         "options": ["今天下雨", "今天很熱", "今天去台東"],
         "ans": "今天下雨",
-        "hint": "'Orad 是雨，Ma-orad 是下雨"
+        "hint": "'Orad 是雨，Ma'orad 是下雨"
     },
     {
         "q": "單字測驗：Cidal",
@@ -153,7 +153,7 @@ if 'init' not in st.session_state:
 
 # --- 5. 主介面 ---
 st.markdown("<h1 style='text-align: center; color: #0277BD;'>Unit 14: O Romi'ad</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #666;'>天氣與自然 (Fa^edet Fixed)</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #666;'>天氣與自然 (修正版)</p>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["📚 詞彙與句型", "🎲 隨機挑戰"])
 
