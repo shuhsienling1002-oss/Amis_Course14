@@ -153,7 +153,7 @@ if 'init' not in st.session_state:
 
 # --- 5. 主介面 ---
 st.markdown("<h1 style='text-align: center; color: #0277BD;'>Unit 14: O Romi'ad</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #666;'>天氣與自然 (修正版)</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #666;'>天氣與自然</p>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["📚 詞彙與句型", "🎲 隨機挑戰"])
 
@@ -232,3 +232,4 @@ with tab2:
             st.session_state.quiz_questions = random.sample(quiz_pool, 3)
             st.session_state.quiz_id = str(random.randint(1000, 9999))
             safe_rerun()
+
