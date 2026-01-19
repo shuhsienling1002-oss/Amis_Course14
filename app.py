@@ -29,7 +29,7 @@ def safe_play_audio(text):
 # --- 0. 系統配置 ---
 st.set_page_config(page_title="Unit 14: O Romi'ad", page_icon="🌦️", layout="centered")
 
-# --- CSS 美化 (天藍色系) ---
+# --- CSS 美化 ---
 st.markdown("""
     <style>
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -68,27 +68,25 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- 2. 資料庫 (Unit 14) ---
-# 10 個核心單字
+# --- 2. 資料庫 (Unit 14 修正版) ---
 vocab_data = [
     {"amis": "Romi'ad", "chi": "天氣 / 日子", "icon": "📅", "source": "Row 255"},
     {"amis": "Cidal", "chi": "太陽", "icon": "☀️", "source": "Basic"},
-    {"amis": "Orad", "chi": "雨", "icon": "🌧️", "source": "Row 6006"},
+    {"amis": "'Orad", "chi": "雨 / 雨水", "icon": "🌧️", "source": "User Fix"},
     {"amis": "Fali", "chi": "風", "icon": "🍃", "source": "Basic"},
     {"amis": "Folad", "chi": "月亮", "icon": "🌙", "source": "Basic"},
     {"amis": "Fo'is", "chi": "星星", "icon": "⭐", "source": "Basic"},
     {"amis": "Kakarayan", "chi": "天空", "icon": "🌌", "source": "Basic"},
     {"amis": "Si'enaw", "chi": "冷 (天氣)", "icon": "🥶", "source": "Row 255"},
-    {"amis": "Fa'edet", "chi": "熱", "icon": "🥵", "source": "Row 538"},
+    {"amis": "Fa^edet", "chi": "熱 / 熱度", "icon": "🥵", "source": "Row 538 (Fix)"}, # 修正拼寫
     {"amis": "Anini", "chi": "今天 / 現在", "icon": "👇", "source": "Basic"},
 ]
 
-# 5 個實用句型
 sentences = [
     {"amis": "Si'enaw ko romi'ad.", "chi": "天氣很冷。", "icon": "🥶", "source": "Row 255"},
-    {"amis": "Maorad anini.", "chi": "今天下雨。", "icon": "🌧️", "source": "Ma- + Noun (V化)"},
-    {"amis": "Fa'edet ko cidal.", "chi": "太陽很熱。", "icon": "☀️", "source": "Unit 12+14"},
-    {"amis": "I kakarayan ko fo'is.", "chi": "星星在天空。", "icon": "⭐", "source": "Unit 13 (I...)"},
+    {"amis": "Maorad anini.", "chi": "今天下雨。", "icon": "🌧️", "source": "Ma + 'Orad"},
+    {"amis": "Fa^edet ko cidal.", "chi": "太陽很熱。", "icon": "☀️", "source": "Unit 12+14 (Fix)"}, # 修正拼寫
+    {"amis": "I kakarayan ko fo'is.", "chi": "星星在天空。", "icon": "⭐", "source": "Unit 13"},
     {"amis": "Tata'ang ko fali.", "chi": "風很大。", "icon": "🍃", "source": "Tata'ang (大)"},
 ]
 
@@ -113,7 +111,7 @@ quiz_pool = [
         "audio": "Maorad anini",
         "options": ["今天下雨", "今天很熱", "今天去台東"],
         "ans": "今天下雨",
-        "hint": "Orad 是雨，Ma-orad 是下雨"
+        "hint": "'Orad 是雨，Ma-orad 是下雨"
     },
     {
         "q": "單字測驗：Cidal",
@@ -130,11 +128,11 @@ quiz_pool = [
         "hint": "看不見但吹起來涼涼的"
     },
     {
-        "q": "Fa'edet ko cidal.",
-        "audio": "Fa'edet ko cidal",
+        "q": "Fa^edet ko cidal.",
+        "audio": "Fa^edet ko cidal",
         "options": ["太陽很熱", "月亮很亮", "星星很多"],
         "ans": "太陽很熱",
-        "hint": "Fa'edet 是熱"
+        "hint": "Fa^edet 是熱"
     },
     {
         "q": "你要怎麼說「天氣」或「日子」？",
@@ -155,7 +153,7 @@ if 'init' not in st.session_state:
 
 # --- 5. 主介面 ---
 st.markdown("<h1 style='text-align: center; color: #0277BD;'>Unit 14: O Romi'ad</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #666;'>天氣與自然</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #666;'>天氣與自然 (Fa^edet Fixed)</p>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["📚 詞彙與句型", "🎲 隨機挑戰"])
 
